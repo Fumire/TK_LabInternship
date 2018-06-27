@@ -1,7 +1,5 @@
 GTEx
 |-- Multi-Tissue
-|   |-- GTEx_Analysis_v7.metasoft.csv
-|   |-- GTEx_Analysis_v7.metasoft_description.txt
 |   `-- GTEx_Analysis_v7.metasoft.txt
 |-- Reference
 |   |-- gencode.v19.genes.v7.patched_contigs.exons.txt
@@ -10,18 +8,12 @@ GTEx
 |   |-- GTEx_Analysis_2016-01-15_v7_WholeGenomeSeq_635Ind_PASS_AB02_GQ20_HETX_MISS15_PLINKQC.lookup_table.txt
 |   `-- Homo_sapiens_assembly19.fasta
 |-- RNA-Seq
-|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.csv
 |   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.gct
 |   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.xlsx
-|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_reads.csv
 |   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_reads.gct
-|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.csv
 |   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct
-|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_expected_count.csv
 |   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_expected_count.txt
-|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_tpm.csv
 |   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_tpm.txt
-|   |-- GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.csv
 |   `-- GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.gct
 |-- Single-Tissue
 |   |-- GTEx_Analysis_v7_eQTL
@@ -366,4 +358,4 @@ GTEx
 |       `-- Whole_Blood.v7.normalized_expression.bed.gz.tbi
 `-- Tissue-specific_SNP
 
-8 directories, 358 files
+8 directories, 350 files
