@@ -1,0 +1,369 @@
+GTEx
+|-- Multi-Tissue
+|   |-- GTEx_Analysis_v7.metasoft.csv
+|   |-- GTEx_Analysis_v7.metasoft_description.txt
+|   `-- GTEx_Analysis_v7.metasoft.txt
+|-- Reference
+|   |-- gencode.v19.genes.v7.patched_contigs.exons.txt
+|   |-- gencode.v19.genes.v7.patched_contigs.gtf
+|   |-- gencode.v19.transcripts.patched_contigs.gtf
+|   |-- GTEx_Analysis_2016-01-15_v7_WholeGenomeSeq_635Ind_PASS_AB02_GQ20_HETX_MISS15_PLINKQC.lookup_table.txt
+|   `-- Homo_sapiens_assembly19.fasta
+|-- RNA-Seq
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.csv
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.gct
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.xlsx
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_reads.csv
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_reads.gct
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.csv
+|   |-- GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct
+|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_expected_count.csv
+|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_expected_count.txt
+|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_tpm.csv
+|   |-- GTEx_Analysis_2016-01-15_v7_RSEMv1.2.22_transcript_tpm.txt
+|   |-- GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.csv
+|   `-- GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.gct
+|-- Single-Tissue
+|   |-- GTEx_Analysis_v7_eQTL
+|   |   |-- Adipose_Subcutaneous.v7.egenes.csv
+|   |   |-- Adipose_Subcutaneous.v7.egenes.txt
+|   |   |-- Adipose_Subcutaneous.v7.egenes.xlsx
+|   |   |-- Adipose_Subcutaneous.v7.signif_variant_gene_pairs.csv
+|   |   |-- Adipose_Subcutaneous.v7.signif_variant_gene_pairs.txt
+|   |   |-- Adipose_Visceral_Omentum.v7.egenes.csv
+|   |   |-- Adipose_Visceral_Omentum.v7.egenes.txt
+|   |   |-- Adipose_Visceral_Omentum.v7.signif_variant_gene_pairs.csv
+|   |   |-- Adipose_Visceral_Omentum.v7.signif_variant_gene_pairs.txt
+|   |   |-- Adrenal_Gland.v7.egenes.csv
+|   |   |-- Adrenal_Gland.v7.egenes.txt
+|   |   |-- Adrenal_Gland.v7.signif_variant_gene_pairs.csv
+|   |   |-- Adrenal_Gland.v7.signif_variant_gene_pairs.txt
+|   |   |-- Artery_Aorta.v7.egenes.csv
+|   |   |-- Artery_Aorta.v7.egenes.txt
+|   |   |-- Artery_Aorta.v7.signif_variant_gene_pairs.csv
+|   |   |-- Artery_Aorta.v7.signif_variant_gene_pairs.txt
+|   |   |-- Artery_Coronary.v7.egenes.csv
+|   |   |-- Artery_Coronary.v7.egenes.txt
+|   |   |-- Artery_Coronary.v7.signif_variant_gene_pairs.csv
+|   |   |-- Artery_Coronary.v7.signif_variant_gene_pairs.txt
+|   |   |-- Artery_Tibial.v7.egenes.csv
+|   |   |-- Artery_Tibial.v7.egenes.txt
+|   |   |-- Artery_Tibial.v7.signif_variant_gene_pairs.csv
+|   |   |-- Artery_Tibial.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Amygdala.v7.egenes.csv
+|   |   |-- Brain_Amygdala.v7.egenes.txt
+|   |   |-- Brain_Amygdala.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Amygdala.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Anterior_cingulate_cortex_BA24.v7.egenes.csv
+|   |   |-- Brain_Anterior_cingulate_cortex_BA24.v7.egenes.txt
+|   |   |-- Brain_Anterior_cingulate_cortex_BA24.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Anterior_cingulate_cortex_BA24.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Caudate_basal_ganglia.v7.egenes.csv
+|   |   |-- Brain_Caudate_basal_ganglia.v7.egenes.txt
+|   |   |-- Brain_Caudate_basal_ganglia.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Caudate_basal_ganglia.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Cerebellar_Hemisphere.v7.egenes.csv
+|   |   |-- Brain_Cerebellar_Hemisphere.v7.egenes.txt
+|   |   |-- Brain_Cerebellar_Hemisphere.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Cerebellar_Hemisphere.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Cerebellum.v7.egenes.csv
+|   |   |-- Brain_Cerebellum.v7.egenes.txt
+|   |   |-- Brain_Cerebellum.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Cerebellum.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Cortex.v7.egenes.csv
+|   |   |-- Brain_Cortex.v7.egenes.txt
+|   |   |-- Brain_Cortex.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Cortex.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Frontal_Cortex_BA9.v7.egenes.csv
+|   |   |-- Brain_Frontal_Cortex_BA9.v7.egenes.txt
+|   |   |-- Brain_Frontal_Cortex_BA9.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Frontal_Cortex_BA9.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Hippocampus.v7.egenes.csv
+|   |   |-- Brain_Hippocampus.v7.egenes.txt
+|   |   |-- Brain_Hippocampus.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Hippocampus.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Hypothalamus.v7.egenes.csv
+|   |   |-- Brain_Hypothalamus.v7.egenes.txt
+|   |   |-- Brain_Hypothalamus.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Hypothalamus.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Nucleus_accumbens_basal_ganglia.v7.egenes.csv
+|   |   |-- Brain_Nucleus_accumbens_basal_ganglia.v7.egenes.txt
+|   |   |-- Brain_Nucleus_accumbens_basal_ganglia.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Nucleus_accumbens_basal_ganglia.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Putamen_basal_ganglia.v7.egenes.csv
+|   |   |-- Brain_Putamen_basal_ganglia.v7.egenes.txt
+|   |   |-- Brain_Putamen_basal_ganglia.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Putamen_basal_ganglia.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Spinal_cord_cervical_c-1.v7.egenes.csv
+|   |   |-- Brain_Spinal_cord_cervical_c-1.v7.egenes.txt
+|   |   |-- Brain_Spinal_cord_cervical_c-1.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Spinal_cord_cervical_c-1.v7.signif_variant_gene_pairs.txt
+|   |   |-- Brain_Substantia_nigra.v7.egenes.csv
+|   |   |-- Brain_Substantia_nigra.v7.egenes.txt
+|   |   |-- Brain_Substantia_nigra.v7.signif_variant_gene_pairs.csv
+|   |   |-- Brain_Substantia_nigra.v7.signif_variant_gene_pairs.txt
+|   |   |-- Breast_Mammary_Tissue.v7.egenes.csv
+|   |   |-- Breast_Mammary_Tissue.v7.egenes.txt
+|   |   |-- Breast_Mammary_Tissue.v7.signif_variant_gene_pairs.csv
+|   |   |-- Breast_Mammary_Tissue.v7.signif_variant_gene_pairs.txt
+|   |   |-- Cells_EBV-transformed_lymphocytes.v7.egenes.csv
+|   |   |-- Cells_EBV-transformed_lymphocytes.v7.egenes.txt
+|   |   |-- Cells_EBV-transformed_lymphocytes.v7.signif_variant_gene_pairs.csv
+|   |   |-- Cells_EBV-transformed_lymphocytes.v7.signif_variant_gene_pairs.txt
+|   |   |-- Cells_Transformed_fibroblasts.v7.egenes.csv
+|   |   |-- Cells_Transformed_fibroblasts.v7.egenes.txt
+|   |   |-- Cells_Transformed_fibroblasts.v7.signif_variant_gene_pairs.csv
+|   |   |-- Cells_Transformed_fibroblasts.v7.signif_variant_gene_pairs.txt
+|   |   |-- Colon_Sigmoid.v7.egenes.csv
+|   |   |-- Colon_Sigmoid.v7.egenes.txt
+|   |   |-- Colon_Sigmoid.v7.signif_variant_gene_pairs.csv
+|   |   |-- Colon_Sigmoid.v7.signif_variant_gene_pairs.txt
+|   |   |-- Colon_Transverse.v7.egenes.csv
+|   |   |-- Colon_Transverse.v7.egenes.txt
+|   |   |-- Colon_Transverse.v7.signif_variant_gene_pairs.csv
+|   |   |-- Colon_Transverse.v7.signif_variant_gene_pairs.txt
+|   |   |-- Esophagus_Gastroesophageal_Junction.v7.egenes.csv
+|   |   |-- Esophagus_Gastroesophageal_Junction.v7.egenes.txt
+|   |   |-- Esophagus_Gastroesophageal_Junction.v7.signif_variant_gene_pairs.csv
+|   |   |-- Esophagus_Gastroesophageal_Junction.v7.signif_variant_gene_pairs.txt
+|   |   |-- Esophagus_Mucosa.v7.egenes.csv
+|   |   |-- Esophagus_Mucosa.v7.egenes.txt
+|   |   |-- Esophagus_Mucosa.v7.signif_variant_gene_pairs.csv
+|   |   |-- Esophagus_Mucosa.v7.signif_variant_gene_pairs.txt
+|   |   |-- Esophagus_Muscularis.v7.egenes.csv
+|   |   |-- Esophagus_Muscularis.v7.egenes.txt
+|   |   |-- Esophagus_Muscularis.v7.signif_variant_gene_pairs.csv
+|   |   |-- Esophagus_Muscularis.v7.signif_variant_gene_pairs.txt
+|   |   |-- Heart_Atrial_Appendage.v7.egenes.csv
+|   |   |-- Heart_Atrial_Appendage.v7.egenes.txt
+|   |   |-- Heart_Atrial_Appendage.v7.signif_variant_gene_pairs.csv
+|   |   |-- Heart_Atrial_Appendage.v7.signif_variant_gene_pairs.txt
+|   |   |-- Heart_Left_Ventricle.v7.egenes.csv
+|   |   |-- Heart_Left_Ventricle.v7.egenes.txt
+|   |   |-- Heart_Left_Ventricle.v7.signif_variant_gene_pairs.csv
+|   |   |-- Heart_Left_Ventricle.v7.signif_variant_gene_pairs.txt
+|   |   |-- Liver.v7.egenes.csv
+|   |   |-- Liver.v7.egenes.txt
+|   |   |-- Liver.v7.signif_variant_gene_pairs.csv
+|   |   |-- Liver.v7.signif_variant_gene_pairs.txt
+|   |   |-- Lung.v7.egenes.csv
+|   |   |-- Lung.v7.egenes.txt
+|   |   |-- Lung.v7.signif_variant_gene_pairs.csv
+|   |   |-- Lung.v7.signif_variant_gene_pairs.txt
+|   |   |-- Minor_Salivary_Gland.v7.egenes.csv
+|   |   |-- Minor_Salivary_Gland.v7.egenes.txt
+|   |   |-- Minor_Salivary_Gland.v7.signif_variant_gene_pairs.csv
+|   |   |-- Minor_Salivary_Gland.v7.signif_variant_gene_pairs.txt
+|   |   |-- Muscle_Skeletal.v7.egenes.csv
+|   |   |-- Muscle_Skeletal.v7.egenes.txt
+|   |   |-- Muscle_Skeletal.v7.signif_variant_gene_pairs.csv
+|   |   |-- Muscle_Skeletal.v7.signif_variant_gene_pairs.txt
+|   |   |-- Nerve_Tibial.v7.egenes.csv
+|   |   |-- Nerve_Tibial.v7.egenes.txt
+|   |   |-- Nerve_Tibial.v7.signif_variant_gene_pairs.csv
+|   |   |-- Nerve_Tibial.v7.signif_variant_gene_pairs.txt
+|   |   |-- Ovary.v7.egenes.csv
+|   |   |-- Ovary.v7.egenes.txt
+|   |   |-- Ovary.v7.signif_variant_gene_pairs.csv
+|   |   |-- Ovary.v7.signif_variant_gene_pairs.txt
+|   |   |-- Pancreas.v7.egenes.csv
+|   |   |-- Pancreas.v7.egenes.txt
+|   |   |-- Pancreas.v7.signif_variant_gene_pairs.csv
+|   |   |-- Pancreas.v7.signif_variant_gene_pairs.txt
+|   |   |-- Pituitary.v7.egenes.csv
+|   |   |-- Pituitary.v7.egenes.txt
+|   |   |-- Pituitary.v7.signif_variant_gene_pairs.csv
+|   |   |-- Pituitary.v7.signif_variant_gene_pairs.txt
+|   |   |-- Prostate.v7.egenes.csv
+|   |   |-- Prostate.v7.egenes.txt
+|   |   |-- Prostate.v7.signif_variant_gene_pairs.csv
+|   |   |-- Prostate.v7.signif_variant_gene_pairs.txt
+|   |   |-- Skin_Not_Sun_Exposed_Suprapubic.v7.egenes.csv
+|   |   |-- Skin_Not_Sun_Exposed_Suprapubic.v7.egenes.txt
+|   |   |-- Skin_Not_Sun_Exposed_Suprapubic.v7.signif_variant_gene_pairs.csv
+|   |   |-- Skin_Not_Sun_Exposed_Suprapubic.v7.signif_variant_gene_pairs.txt
+|   |   |-- Skin_Sun_Exposed_Lower_leg.v7.egenes.csv
+|   |   |-- Skin_Sun_Exposed_Lower_leg.v7.egenes.txt
+|   |   |-- Skin_Sun_Exposed_Lower_leg.v7.signif_variant_gene_pairs.csv
+|   |   |-- Skin_Sun_Exposed_Lower_leg.v7.signif_variant_gene_pairs.txt
+|   |   |-- Small_Intestine_Terminal_Ileum.v7.egenes.csv
+|   |   |-- Small_Intestine_Terminal_Ileum.v7.egenes.txt
+|   |   |-- Small_Intestine_Terminal_Ileum.v7.signif_variant_gene_pairs.csv
+|   |   |-- Small_Intestine_Terminal_Ileum.v7.signif_variant_gene_pairs.txt
+|   |   |-- Spleen.v7.egenes.csv
+|   |   |-- Spleen.v7.egenes.txt
+|   |   |-- Spleen.v7.signif_variant_gene_pairs.csv
+|   |   |-- Spleen.v7.signif_variant_gene_pairs.txt
+|   |   |-- Stomach.v7.egenes.csv
+|   |   |-- Stomach.v7.egenes.txt
+|   |   |-- Stomach.v7.signif_variant_gene_pairs.csv
+|   |   |-- Stomach.v7.signif_variant_gene_pairs.txt
+|   |   |-- Testis.v7.egenes.csv
+|   |   |-- Testis.v7.egenes.txt
+|   |   |-- Testis.v7.signif_variant_gene_pairs.csv
+|   |   |-- Testis.v7.signif_variant_gene_pairs.txt
+|   |   |-- Thyroid.v7.egenes.csv
+|   |   |-- Thyroid.v7.egenes.txt
+|   |   |-- Thyroid.v7.signif_variant_gene_pairs.csv
+|   |   |-- Thyroid.v7.signif_variant_gene_pairs.txt
+|   |   |-- Uterus.v7.egenes.csv
+|   |   |-- Uterus.v7.egenes.txt
+|   |   |-- Uterus.v7.signif_variant_gene_pairs.csv
+|   |   |-- Uterus.v7.signif_variant_gene_pairs.txt
+|   |   |-- Vagina.v7.egenes.csv
+|   |   |-- Vagina.v7.egenes.txt
+|   |   |-- Vagina.v7.signif_variant_gene_pairs.csv
+|   |   |-- Vagina.v7.signif_variant_gene_pairs.txt
+|   |   |-- Whole_Blood.v7.egenes.csv
+|   |   |-- Whole_Blood.v7.egenes.txt
+|   |   |-- Whole_Blood.v7.signif_variant_gene_pairs.csv
+|   |   `-- Whole_Blood.v7.signif_variant_gene_pairs.txt
+|   |-- GTEx_Analysis_v7_eQTL_covariates
+|   |   |-- Adipose_Subcutaneous.v7.covariates.txt
+|   |   |-- Adipose_Visceral_Omentum.v7.covariates.txt
+|   |   |-- Adrenal_Gland.v7.covariates.txt
+|   |   |-- Artery_Aorta.v7.covariates.txt
+|   |   |-- Artery_Coronary.v7.covariates.txt
+|   |   |-- Artery_Tibial.v7.covariates.txt
+|   |   |-- Brain_Amygdala.v7.covariates.txt
+|   |   |-- Brain_Anterior_cingulate_cortex_BA24.v7.covariates.txt
+|   |   |-- Brain_Caudate_basal_ganglia.v7.covariates.txt
+|   |   |-- Brain_Cerebellar_Hemisphere.v7.covariates.txt
+|   |   |-- Brain_Cerebellum.v7.covariates.txt
+|   |   |-- Brain_Cortex.v7.covariates.txt
+|   |   |-- Brain_Frontal_Cortex_BA9.v7.covariates.txt
+|   |   |-- Brain_Hippocampus.v7.covariates.txt
+|   |   |-- Brain_Hypothalamus.v7.covariates.txt
+|   |   |-- Brain_Nucleus_accumbens_basal_ganglia.v7.covariates.txt
+|   |   |-- Brain_Putamen_basal_ganglia.v7.covariates.txt
+|   |   |-- Brain_Spinal_cord_cervical_c-1.v7.covariates.txt
+|   |   |-- Brain_Substantia_nigra.v7.covariates.txt
+|   |   |-- Breast_Mammary_Tissue.v7.covariates.txt
+|   |   |-- Cells_EBV-transformed_lymphocytes.v7.covariates.txt
+|   |   |-- Cells_Transformed_fibroblasts.v7.covariates.txt
+|   |   |-- Colon_Sigmoid.v7.covariates.txt
+|   |   |-- Colon_Transverse.v7.covariates.txt
+|   |   |-- Esophagus_Gastroesophageal_Junction.v7.covariates.txt
+|   |   |-- Esophagus_Mucosa.v7.covariates.txt
+|   |   |-- Esophagus_Muscularis.v7.covariates.txt
+|   |   |-- Heart_Atrial_Appendage.v7.covariates.txt
+|   |   |-- Heart_Left_Ventricle.v7.covariates.txt
+|   |   |-- Liver.v7.covariates.txt
+|   |   |-- Lung.v7.covariates.txt
+|   |   |-- Minor_Salivary_Gland.v7.covariates.txt
+|   |   |-- Muscle_Skeletal.v7.covariates.txt
+|   |   |-- Nerve_Tibial.v7.covariates.txt
+|   |   |-- Ovary.v7.covariates.txt
+|   |   |-- Pancreas.v7.covariates.txt
+|   |   |-- Pituitary.v7.covariates.txt
+|   |   |-- Prostate.v7.covariates.txt
+|   |   |-- Skin_Not_Sun_Exposed_Suprapubic.v7.covariates.txt
+|   |   |-- Skin_Sun_Exposed_Lower_leg.v7.covariates.txt
+|   |   |-- Small_Intestine_Terminal_Ileum.v7.covariates.txt
+|   |   |-- Spleen.v7.covariates.txt
+|   |   |-- Stomach.v7.covariates.txt
+|   |   |-- Testis.v7.covariates.txt
+|   |   |-- Thyroid.v7.covariates.txt
+|   |   |-- Uterus.v7.covariates.txt
+|   |   |-- Vagina.v7.covariates.txt
+|   |   `-- Whole_Blood.v7.covariates.txt
+|   `-- GTEx_Analysis_v7_eQTL_expression_matrices
+|       |-- Adipose_Subcutaneous.v7.normalized_expression.bed
+|       |-- Adipose_Subcutaneous.v7.normalized_expression.bed.gz.tbi
+|       |-- Adipose_Visceral_Omentum.v7.normalized_expression.bed
+|       |-- Adipose_Visceral_Omentum.v7.normalized_expression.bed.gz.tbi
+|       |-- Adrenal_Gland.v7.normalized_expression.bed
+|       |-- Adrenal_Gland.v7.normalized_expression.bed.gz.tbi
+|       |-- Artery_Aorta.v7.normalized_expression.bed
+|       |-- Artery_Aorta.v7.normalized_expression.bed.gz.tbi
+|       |-- Artery_Coronary.v7.normalized_expression.bed
+|       |-- Artery_Coronary.v7.normalized_expression.bed.gz.tbi
+|       |-- Artery_Tibial.v7.normalized_expression.bed
+|       |-- Artery_Tibial.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Amygdala.v7.normalized_expression.bed
+|       |-- Brain_Amygdala.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Anterior_cingulate_cortex_BA24.v7.normalized_expression.bed
+|       |-- Brain_Anterior_cingulate_cortex_BA24.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Caudate_basal_ganglia.v7.normalized_expression.bed
+|       |-- Brain_Caudate_basal_ganglia.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Cerebellar_Hemisphere.v7.normalized_expression.bed
+|       |-- Brain_Cerebellar_Hemisphere.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Cerebellum.v7.normalized_expression.bed
+|       |-- Brain_Cerebellum.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Cortex.v7.normalized_expression.bed
+|       |-- Brain_Cortex.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Frontal_Cortex_BA9.v7.normalized_expression.bed
+|       |-- Brain_Frontal_Cortex_BA9.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Hippocampus.v7.normalized_expression.bed
+|       |-- Brain_Hippocampus.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Hypothalamus.v7.normalized_expression.bed
+|       |-- Brain_Hypothalamus.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Nucleus_accumbens_basal_ganglia.v7.normalized_expression.bed
+|       |-- Brain_Nucleus_accumbens_basal_ganglia.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Putamen_basal_ganglia.v7.normalized_expression.bed
+|       |-- Brain_Putamen_basal_ganglia.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Spinal_cord_cervical_c-1.v7.normalized_expression.bed
+|       |-- Brain_Spinal_cord_cervical_c-1.v7.normalized_expression.bed.gz.tbi
+|       |-- Brain_Substantia_nigra.v7.normalized_expression.bed
+|       |-- Brain_Substantia_nigra.v7.normalized_expression.bed.gz.tbi
+|       |-- Breast_Mammary_Tissue.v7.normalized_expression.bed
+|       |-- Breast_Mammary_Tissue.v7.normalized_expression.bed.gz.tbi
+|       |-- Cells_EBV-transformed_lymphocytes.v7.normalized_expression.bed
+|       |-- Cells_EBV-transformed_lymphocytes.v7.normalized_expression.bed.gz.tbi
+|       |-- Cells_Transformed_fibroblasts.v7.normalized_expression.bed
+|       |-- Cells_Transformed_fibroblasts.v7.normalized_expression.bed.gz.tbi
+|       |-- Colon_Sigmoid.v7.normalized_expression.bed
+|       |-- Colon_Sigmoid.v7.normalized_expression.bed.gz.tbi
+|       |-- Colon_Transverse.v7.normalized_expression.bed
+|       |-- Colon_Transverse.v7.normalized_expression.bed.gz.tbi
+|       |-- Esophagus_Gastroesophageal_Junction.v7.normalized_expression.bed
+|       |-- Esophagus_Gastroesophageal_Junction.v7.normalized_expression.bed.gz.tbi
+|       |-- Esophagus_Mucosa.v7.normalized_expression.bed
+|       |-- Esophagus_Mucosa.v7.normalized_expression.bed.gz.tbi
+|       |-- Esophagus_Muscularis.v7.normalized_expression.bed
+|       |-- Esophagus_Muscularis.v7.normalized_expression.bed.gz.tbi
+|       |-- Heart_Atrial_Appendage.v7.normalized_expression.bed
+|       |-- Heart_Atrial_Appendage.v7.normalized_expression.bed.gz.tbi
+|       |-- Heart_Left_Ventricle.v7.normalized_expression.bed
+|       |-- Heart_Left_Ventricle.v7.normalized_expression.bed.gz.tbi
+|       |-- Liver.v7.normalized_expression.bed
+|       |-- Liver.v7.normalized_expression.bed.gz.tbi
+|       |-- Lung.v7.normalized_expression.bed
+|       |-- Lung.v7.normalized_expression.bed.gz.tbi
+|       |-- Minor_Salivary_Gland.v7.normalized_expression.bed
+|       |-- Minor_Salivary_Gland.v7.normalized_expression.bed.gz.tbi
+|       |-- Muscle_Skeletal.v7.normalized_expression.bed
+|       |-- Muscle_Skeletal.v7.normalized_expression.bed.gz.tbi
+|       |-- Nerve_Tibial.v7.normalized_expression.bed
+|       |-- Nerve_Tibial.v7.normalized_expression.bed.gz.tbi
+|       |-- Ovary.v7.normalized_expression.bed
+|       |-- Ovary.v7.normalized_expression.bed.gz.tbi
+|       |-- Pancreas.v7.normalized_expression.bed
+|       |-- Pancreas.v7.normalized_expression.bed.gz.tbi
+|       |-- Pituitary.v7.normalized_expression.bed
+|       |-- Pituitary.v7.normalized_expression.bed.gz.tbi
+|       |-- Prostate.v7.normalized_expression.bed
+|       |-- Prostate.v7.normalized_expression.bed.gz.tbi
+|       |-- Skin_Not_Sun_Exposed_Suprapubic.v7.normalized_expression.bed
+|       |-- Skin_Not_Sun_Exposed_Suprapubic.v7.normalized_expression.bed.gz.tbi
+|       |-- Skin_Sun_Exposed_Lower_leg.v7.normalized_expression.bed
+|       |-- Skin_Sun_Exposed_Lower_leg.v7.normalized_expression.bed.gz.tbi
+|       |-- Small_Intestine_Terminal_Ileum.v7.normalized_expression.bed
+|       |-- Small_Intestine_Terminal_Ileum.v7.normalized_expression.bed.gz.tbi
+|       |-- Spleen.v7.normalized_expression.bed
+|       |-- Spleen.v7.normalized_expression.bed.gz.tbi
+|       |-- Stomach.v7.normalized_expression.bed
+|       |-- Stomach.v7.normalized_expression.bed.gz.tbi
+|       |-- Testis.v7.normalized_expression.bed
+|       |-- Testis.v7.normalized_expression.bed.gz.tbi
+|       |-- Thyroid.v7.normalized_expression.bed
+|       |-- Thyroid.v7.normalized_expression.bed.gz.tbi
+|       |-- Uterus.v7.normalized_expression.bed
+|       |-- Uterus.v7.normalized_expression.bed.gz.tbi
+|       |-- Vagina.v7.normalized_expression.bed
+|       |-- Vagina.v7.normalized_expression.bed.gz.tbi
+|       |-- Whole_Blood.v7.normalized_expression.bed
+|       `-- Whole_Blood.v7.normalized_expression.bed.gz.tbi
+`-- Tissue-specific_SNP
+
+8 directories, 358 files

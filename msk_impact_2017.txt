@@ -1,0 +1,89 @@
+msk_impact_2017
+|-- case_lists
+|   |-- case_list_Adrenocortical_Carcinoma.txt
+|   |-- case_list_Ampullary_Carcinoma.txt
+|   |-- case_list_Anal_Cancer.txt
+|   |-- case_list_Appendiceal_Cancer.txt
+|   |-- case_list_Bladder_Cancer.txt
+|   |-- case_list_Bone_Cancer.txt
+|   |-- case_list_Breast_Cancer.txt
+|   |-- case_list_Breast_Sarcoma.txt
+|   |-- case_list_Cancer_of_Unknown_Primary.txt
+|   |-- case_list_Cervical_Cancer.txt
+|   |-- case_list_CNS_Cancer.txt
+|   |-- case_list_Colorectal_Cancer.txt
+|   |-- case_list_Embryonal_Tumor.txt
+|   |-- case_list_Endometrial_Cancer.txt
+|   |-- case_list_Esophagogastric_Cancer.txt
+|   |-- case_list_Gastrointestinal_Neuroendocrine_Tumor.txt
+|   |-- case_list_Gastrointestinal_Stromal_Tumor.txt
+|   |-- case_list_Germ_Cell_Tumor.txt
+|   |-- case_list_Gestational_Trophoblastic_Disease.txt
+|   |-- case_list_Glioma.txt
+|   |-- case_list_Head_and_Neck_Cancer.txt
+|   |-- case_list_Hepatobiliary_Cancer.txt
+|   |-- case_list_Histiocytosis.txt
+|   |-- case_list_Hodgkin_Lymphoma.txt
+|   |-- case_list_Leukemia.txt
+|   |-- case_list_Mastocytosis.txt
+|   |-- case_list_Melanoma.txt
+|   |-- case_list_Mesothelioma.txt
+|   |-- case_list_Miscellaneous_Brain_Tumor.txt
+|   |-- case_list_Miscellaneous_Neuroepithelial_Tumor.txt
+|   |-- case_list_Multiple_Myeloma.txt
+|   |-- case_list_NA.txt
+|   |-- case_list_Nerve_Sheath_Tumor.txt
+|   |-- case_list_Non-Hodgkin_Lymphoma.txt
+|   |-- case_list_Non-Small_Cell_Lung_Cancer.txt
+|   |-- case_list_Ovarian_Cancer.txt
+|   |-- case_list_Pancreatic_Cancer.txt
+|   |-- case_list_Penile_Cancer.txt
+|   |-- case_list_Pheochromocytoma.txt
+|   |-- case_list_Pineal_Tumor.txt
+|   |-- case_list_Prostate_Cancer.txt
+|   |-- case_list_Renal_Cell_Carcinoma.txt
+|   |-- case_list_Retinoblastoma.txt
+|   |-- case_list_Salivary_Gland_Cancer.txt
+|   |-- case_list_Sellar_Tumor.txt
+|   |-- case_list_Sex_Cord_Stromal_Tumor.txt
+|   |-- case_list_Skin_Cancer_Non-Melanoma.txt
+|   |-- case_list_Small_Bowel_Cancer.txt
+|   |-- case_list_Small_Cell_Lung_Cancer.txt
+|   |-- case_list_Soft_Tissue_Sarcoma.txt
+|   |-- case_list_Thymic_Tumor.txt
+|   |-- case_list_Thyroid_Cancer.txt
+|   |-- case_list_Uterine_Sarcoma.txt
+|   |-- case_list_Vaginal_Cancer.txt
+|   `-- case_list_Wilms_Tumor.txt
+|-- data_clinical_patient_description.txt
+|-- data_clinical_patient.txt
+|-- data_clinical_patient.xlsx
+|-- data_clinical_sample_description.txt
+|-- data_clinical_sample.txt
+|-- data_clinical_sample.xlsx
+|-- data_CNA.txt
+|-- data_CNA.xlsx
+|-- data_fusions.txt
+|-- data_fusions.xlsx
+|-- data_gene_matrix.txt
+|-- data_gene_matrix.xlsx
+|-- data_gene_panel_impact341.txt
+|-- data_gene_panel_impact410.txt
+|-- data_mutations_uniprot.txt
+|-- data_mutations_uniprot.xlsx
+|-- LICENSE
+|-- meta_clinical_patient.txt
+|-- meta_clinical_sample.txt
+|-- meta_CNA.txt
+|-- meta_fusions.txt
+|-- meta_gene_matrix.txt
+|-- meta_mutations_extended.txt
+|-- meta_study.txt
+|-- msk_impact_2017_data_cna_hg19.seg
+|-- msk_impact_2017_data_cna_hg19.xlsx
+|-- msk_impact_2017_meta_cna_hg19_seg.txt
+|-- README.md
+|-- validation_error_file.txt
+`-- validation_report.html
+
+1 directory, 85 files
