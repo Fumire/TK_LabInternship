@@ -1,3 +1,5 @@
+from multiprocessing.pool import ThreadPool
+
 def RNASeqwithGene(fileName, review=True):
     geneList = dict()
     organList = list()
@@ -66,6 +68,13 @@ def RNASeqwithOrgan(fileName, review=True):
     return organList
 
 if __name__ == "__main__":
-    withGene = RNASeqwithGene("./GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.gct")
-    withOrgan = RNASeqwithOrgan("./GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.gct")
-    print(len(withOrgan))
+    name = "./GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_median_tpm.gct"
+    pool1 = ThreadPool(processes=1)
+    pool2 = ThreadPool(processes=2)
+
+    asyncResult1 = pool1.apply_async(RNASeqwithGene, (name, False))
+    asyncResult2 = ThreadPool(processes=1).apply_async(RNASeqwithOrgan, (name, False))
+
+    withGene = asyncResult1.get()
+    withOrgan = asyncResult2.get()
+    print(len(withOrgan), len(withGene))
