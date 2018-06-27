@@ -19,6 +19,8 @@ def CNAwithPatient(review=True):
             if review and float(val_i) == 0: continue
             patient[nameList[i]][Hugo] = float(val_i)
 
+    cnaFile.close()
+
     if review: 
         for name in nameList:
             if len(patient[name]) == 0: del(patient[name])
@@ -48,7 +50,7 @@ def CNAwithHugo(review=True):
         
         if review: 
             if len(mutation[Hugo]) == 0: del(mutation[Hugo])
-
+    cnaFile.close()
     return mutation
 
 if __name__ == "__main__":
