@@ -7,7 +7,7 @@ def CNAwithPatient(review=True):
     for name in cnaFile.readline().split()[1:]:
         assert name not in patient
         patient[name] = dict()
-    nameList = list(patient.keys())
+        nameList.append(name)
 
     while True:
         line = cnaFile.readline()
