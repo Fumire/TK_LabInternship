@@ -4,7 +4,7 @@ def CNAwithPatient(review=True):
 
     cnaFile = open("./msk_impact_2017/data_CNA.txt", "r")
 
-    for name in cnaFile.readline().split()[1:]:
+    for name in cnaFile.readline().split():
         assert name not in patient
         patient[name] = dict()
         nameList.append(name)
@@ -16,9 +16,8 @@ def CNAwithPatient(review=True):
         Hugo = line[0]
         for i, val_i in enumerate(line):
             if i == 0: continue
-            if review and float(val_i) == 0: continue
+            if review and float(val_i) == 0.0: continue
             patient[nameList[i]][Hugo] = float(val_i)
-
     cnaFile.close()
 
     if review: 
@@ -33,7 +32,7 @@ def CNAwithHugo(review=True):
     
     cnaFile = open("./msk_impact_2017/data_CNA.txt", "r")
 
-    nameList = cnaFile.readline().split()[1:]
+    nameList = cnaFile.readline().split()
 
     while True:
         line = cnaFile.readline()
@@ -54,5 +53,6 @@ def CNAwithHugo(review=True):
     return mutation
 
 if __name__ == "__main__":
-    patient = CNAwithPatient()
-    mutation = CNAwithHugo()
+    patient = CNAwithPatient(False)
+    mutation = CNAwithHugo(False)
+    print(len(patient), len(mutation))
