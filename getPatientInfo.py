@@ -66,7 +66,7 @@ def getPatientInfo(fileName, review=True):
     return patient
 
 if __name__ == "__main__":
-    info = getPatientInfo("./msk_impact_2017/data_clinical_patient.txt")
+    info = getPatientInfo("../msk_impact_2017/data_clinical_patient.txt")
     print(len(info))
     info = selectPatient(info, "SMOKING_HISTORY", "Never")
     print(len(info))

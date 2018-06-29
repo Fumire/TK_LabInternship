@@ -1,5 +1,3 @@
-from multiprocessing.pool import ThreadPool
-
 def RNASeqwithGene(fileName, review=True):
     geneList = dict()
     organList = list()
@@ -8,7 +6,7 @@ def RNASeqwithGene(fileName, review=True):
     
     for _ in range(2): assert RNASeqFile.readline()
 
-    for organ in RNASeqFile.readline().split("\t")[:]:
+    for organ in RNASeqFile.readline().split("\t"):
         assert organ not in geneList
         organList.append(organ)
 
@@ -91,7 +89,7 @@ def RNASeqGeneName(fileName):
         gene = line.split("\t")[0]
         try: assert gene not in geneList
         except:
-            print(gene, geneList[gene])
+            print(gene, geneList[gene], seq)
             seq += 1
         geneList[gene] = seq 
         seq += 1
@@ -138,8 +136,8 @@ def selectedGeneOrgan(fileName, geneNum, organNum):
         return float(RNASeqFile.readline().split("\t")[2+organNum])
 
 if __name__ == "__main__":
-    name = "./GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct"
-    #name = "./GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.gct"
+    #name = "../GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct"
+    name = "../GTEx/RNA-Seq/GTEx_Analysis_2016-01-15_v7_STARv2.4.2a_junctions.gct"
     organList = RNASeqOrganName(name); print(len(organList));
     geneList = RNASeqGeneName(name); print(len(geneList));
     selGene = selectedGene(name, 1234); print(len(selGene));

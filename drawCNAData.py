@@ -39,4 +39,4 @@ plt.ylabel("CNA")
 
 fig = plt.gcf()
 plt.show()
-fig.savefig('CNA_data.png')
+fig.savefig('../CNA_data.png')

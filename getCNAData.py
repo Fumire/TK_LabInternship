@@ -2,7 +2,7 @@ def CNAwithPatient(review=True):
     patient = dict()
     nameList = list()
 
-    cnaFile = open("./msk_impact_2017/data_CNA.txt", "r")
+    cnaFile = open("../msk_impact_2017/data_CNA.txt", "r")
 
     for name in cnaFile.readline().split():
         assert name not in patient
@@ -30,7 +30,7 @@ def CNAwithHugo(review=True):
     mutation = dict()
     nameList = list()
     
-    cnaFile = open("./msk_impact_2017/data_CNA.txt", "r")
+    cnaFile = open("../msk_impact_2017/data_CNA.txt", "r")
 
     nameList = cnaFile.readline().split()
 
