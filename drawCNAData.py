@@ -19,10 +19,10 @@ x = list()
 y = list()
 color = list()
 
-for val in ans: x.append(val[0])
-for val in ans: y.append(val[1])
-for val in ans: color.append(ans[val])
-print(color)
+for val in ans: 
+    x.append(val[0])
+    y.append(val[1])
+    color.append(ans[val])
 
 x = np.array(x)
 y = np.array(y)
