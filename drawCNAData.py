@@ -19,7 +19,9 @@ x = list()
 y = list()
 color = list()
 
-for val in ans: 
+name = list(ans.keys()).sort()
+
+for val in name: 
     x.append(val[0])
     y.append(val[1])
     color.append(ans[val])
