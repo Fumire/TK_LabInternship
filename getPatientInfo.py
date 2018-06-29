@@ -1,11 +1,27 @@
-def interpret(kind, value):
+def interpretPy(kind, value):
     if "NA": return None
     answer = {"SEX": {True: "Male", False: "Female"},
             "VITAL_STATUS": {True: "ALIVE", False: "DECEASED"},
             "SMOKING_HISTORY": {1: "Prev/Curr Smoker", 0: "Never", -1: "Unknown"},
-            "OS_STATUS": {True: "LIVING", False: "DECEASED"}
-            }
+            "OS_STATUS": {True: "LIVING", False: "DECEASED"}}
     return answer[kind][value]
+
+def interpretMan(kind, value):
+    if None: return "NA"
+    answer = {"SEX": {"Male": True, "Female": False},
+            "VITAL_STATUS": {"ALIVE": True, "DECEASED": False},
+            "SMOKING_HISTORY": {"Prev/Curr Smoker": 1, "Never": 0, "Unknown": -1},
+            "OS_STATUS": {"LIVING": True, "DECEASED": False}}
+    return answer[kind][value]
+
+def selectPatient(patient, kind, value):
+    value = interpretMan(kind, value)
+    names = list(patient.keys())
+    
+    for name in names:
+        if patient[name][kind] != value:
+            del(patient[name])
+    return patient
 
 def getPatientInfo(fileName, review=True):
     patient = dict()
@@ -39,7 +55,7 @@ def getPatientInfo(fileName, review=True):
             elif i == 3:
                 if val_i == "Prev/Curr Smoker": patient[name][infomations[i]] = 1
                 elif val_i == "Never": patient[name][infomations[i]] = 0
-                elif val_i == "Unknown": patient[name][infomations[i]] = 0
+                elif val_i == "Unknown": patient[name][infomations[i]] = -1
                 elif val_i == "NA": patient[name][infomations[i]] = val_i
                 else: raise WrongSmokingInfo
             elif i == 4:
@@ -51,4 +67,6 @@ def getPatientInfo(fileName, review=True):
 
 if __name__ == "__main__":
     info = getPatientInfo("./msk_impact_2017/data_clinical_patient.txt")
+    print(len(info))
+    info = selectPatient(info, "SMOKING_HISTORY", "Never")
     print(len(info))
