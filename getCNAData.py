@@ -1,8 +1,8 @@
-def CNAwithPatient(review=True):
+def CNAwithPatient(fileName, review=True):
     patient = dict()
     nameList = list()
 
-    cnaFile = open("../msk_impact_2017/data_CNA.txt", "r")
+    cnaFile = open(fileName, "r")
 
     for name in cnaFile.readline().split():
         assert name not in patient
@@ -26,11 +26,11 @@ def CNAwithPatient(review=True):
 
     return patient
 
-def CNAwithHugo(review=True):
+def CNAwithHugo(fileName, review=True):
     mutation = dict()
     nameList = list()
     
-    cnaFile = open("../msk_impact_2017/data_CNA.txt", "r")
+    cnaFile = open(fileName, "r")
 
     nameList = cnaFile.readline().split()
 
@@ -53,6 +53,7 @@ def CNAwithHugo(review=True):
     return mutation
 
 if __name__ == "__main__":
-    patient = CNAwithPatient(False)
-    mutation = CNAwithHugo(False)
+    name = "../msk_impact_2017/data_CNA.txt"
+    patient = CNAwithPatient(name, False)
+    mutation = CNAwithHugo(name, False)
     print(len(patient), len(mutation))

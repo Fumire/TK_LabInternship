@@ -19,10 +19,7 @@ x = list()
 y = list()
 color = list()
 
-name = list(ans.keys())
-name.sort()
-
-for val in name: 
+for val in ans: 
     x.append(val[0])
     y.append(val[1])
     color.append(ans[val])
@@ -42,4 +39,4 @@ plt.ylabel("CNA")
 
 fig = plt.gcf()
 plt.show()
-fig.savefig('../CNA_data.png')
+fig.savefig('CNA_data.png')
