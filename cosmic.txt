@@ -1,0 +1,13 @@
+COSMIC
+├── cancer_gene_census.csv
+├── Census_allSat Jun 30 11_02_58 2018.tsv
+├── CosmicBreakpointsExport.tsv
+├── CosmicCompleteCNA.tsv
+├── CosmicCompleteTargetedScreensMutantExport.tsv
+├── CosmicGenomeScreensMutantExport.tsv
+├── CosmicMutantExportCensus.tsv
+├── CosmicMutantExport.tsv
+├── CosmicNCV.tsv
+└── CosmicStructExport.tsv
+
+0 directories, 10 files
