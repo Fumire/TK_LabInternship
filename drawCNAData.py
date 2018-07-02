@@ -3,10 +3,13 @@ mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
+import time
 
-data = cna.CNAwithHugo(True)
+data = cna.CNAwithHugo("../msk_impact_2017/data_CNA.txt",True)
+#data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
 HUGOs = list(data.keys())
 ans = dict()
+now = time.strftime("%m%d%H%M%S")
 
 for i, gene in enumerate(HUGOs):
     for j in data[gene].values():
@@ -39,4 +42,4 @@ plt.ylabel("CNA")
 
 fig = plt.gcf()
 plt.show()
-fig.savefig('CNA_data.png')
+fig.savefig('CNA_data_'+now+'.png')
