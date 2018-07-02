@@ -86,7 +86,8 @@ def RNASeqGeneName(fileName):
     while True:
         line = RNASeqFile.readline()
         if not line: break
-        gene = line.split("\t")[0]
+        gene = line.split("\t")[:2]
+        gene = str(gene[0]) + "+" + str(gene[1])
         try: assert gene not in geneList
         except:
             print(gene, geneList[gene], seq)
