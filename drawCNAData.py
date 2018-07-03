@@ -17,10 +17,13 @@ for i, gene in enumerate(HUGOs):
             ans[(i,j)] += 1
         else:
             ans[(i,j)] = 1
+del data
 
 x = list()
 y = list()
 color = list()
+data = list(ans.keys())
+data.sort()
 
 for val in ans: 
     x.append(val[0])
@@ -41,5 +44,6 @@ plt.ylabel("CNA")
 #plt.xticks(x, list(data.keys()))
 
 fig = plt.gcf()
+fig.set_size_inches(24, 18)
 plt.show()
 fig.savefig('CNA_data_'+now+'.png')
