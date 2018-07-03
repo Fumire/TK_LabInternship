@@ -17,7 +17,7 @@ def CNAFromCosmic(fileName):
     cnaFile.close()
     return geneList
 
-def onlyCNAFromCosmic(fileName):
+def onlyCNAFromCosmic(fileName, see=-1):
     geneList = dict()
     cnaFile = open(fileName, "r")
 
@@ -29,16 +29,29 @@ def onlyCNAFromCosmic(fileName):
 
         line = line.split("\t")
         gene = line[0] + "+" + line[1]
-        
-        assert gene not in geneList
-        
-        if line[14] == '': continue
+        if see != -1: gene += line[see] + "+" + gene
 
-        if line[16] == "gain": geneList[gene] = float(line[14])
-        elif line[16] == "loss": geneList[gene] = -1 * float(line[14])
-        else: assert False
+        assert gene not in geneList
+
+        if line[14] == '': line[14] = 0
+        if line[15] == '': line[15] = 0
+
+        if line[16] == "gain": geneList[gene] = (float(line[14]))
+        elif line[16] == "loss": geneList[gene] = -(float(line[14]))
+    else: assert False
     cnaFile.close()
     return geneList
+
+def handCNAFromCosmic(fileName):
+    data = onlyCNAFromCosmic(fileName)
+    ans = dict()
+
+    for gene, val in data.items():
+        name = gene.split("+")[1]
+        if (name, val) in ans: ans[(name, val)] += 1
+        else: ans[(name, val)] = 1
+
+    return ans
 
 def CNAwithPatient(fileName, review=True):
     patient = dict()
@@ -62,16 +75,31 @@ def CNAwithPatient(fileName, review=True):
             patient[nameList[i]][Hugo] = float(val_i)
     cnaFile.close()
 
-    if review: 
+    if review:
         for name in nameList:
             if len(patient[name]) == 0: del(patient[name])
 
     return patient
 
+def CNAonlyGene(fileName):
+    nameList = list()
+    cnaFile = open(fileName, "r")
+
+    assert cnaFile.readline()
+
+    while True:
+        line = cnaFile.readline()
+        if not line: break
+        line = line.split("\t")[0]
+        if line not in nameList:
+            nameList.append(line)
+    cnaFile.close()
+    return nameList
+
 def CNAwithHugo(fileName, review=True):
     mutation = dict()
     nameList = list()
-    
+
     cnaFile = open(fileName, "r")
 
     nameList = cnaFile.readline().split()
@@ -88,8 +116,8 @@ def CNAwithHugo(fileName, review=True):
             if i == 0: continue
             if review and float(val_i) == 0: continue
             mutation[Hugo][nameList[i]] = float(val_i)
-        
-        if review: 
+
+        if review:
             if len(mutation[Hugo]) == 0: del(mutation[Hugo])
     cnaFile.close()
     return mutation
@@ -98,4 +126,6 @@ if __name__ == "__main__":
     name = "../msk_impact_2017/data_CNA.txt"
     #patient = CNAwithPatient(name, False); print(len(patient));
     #mutation = CNAwithHugo(name, False); print(len(mutation));
-    cosmic = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv"); print(len(cosmic));
+    #cosmic = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv"); print(len(cosmic)); del cosmic;
+    handle = handCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv");
+    for gene, val in handle.items(): print(gene, val)
