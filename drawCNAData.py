@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
 import time
+import sys
 
 data = cna.CNAwithHugo("../msk_impact_2017/data_CNA.txt",True)
 #data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
@@ -46,4 +47,7 @@ plt.ylabel("CNA")
 fig = plt.gcf()
 fig.set_size_inches(24, 18)
 plt.show()
-fig.savefig('CNA_data_'+now+'.png')
+title = "CNA_data_"
+if len(sys.argv) > 1:
+    title = sys.argv[1] + "_"
+fig.savefig(title + now + '.png')
