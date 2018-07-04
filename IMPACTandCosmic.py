@@ -1,9 +1,11 @@
 import matplotlib as mpl
 mpl.use("Agg")
+mpl.rcParams.update({'font.size': 20})
 import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
 import time
+import sys
 
 now = time.strftime("%m%d%H%M%s")
 dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
@@ -12,13 +14,13 @@ ans = dict()
 
 for gene, val in dataCosmic.items():
     name = gene.split("+")[0]
+    if val == 0: continue
     if name not in dataImpact: continue
     if (name, val) in ans: ans[(name, val)] += 1
     else: ans[(name, val)] = 1
 del dataCosmic
 del dataImpact
-print("Load Data")
-print(ans)
+print("Load Data", len(ans))
 
 x = list()
 y = list()
@@ -32,7 +34,7 @@ for val in gene:
     x.append(val[0])
     y.append(val[1])
     color.append(ans[val])
-    big.append(ans[val] * 100)
+    big.append(ans[val] * 10)
 del ans
 print("Load ans")
 
@@ -54,4 +56,7 @@ plt.xticks([])
 fig = plt.gcf()
 fig.set_size_inches(24, 18)
 plt.show()
-fig.savefig("IMPACTandCOSMIC_"+now+".png")
+title = "IMPACTandCOSMIC_"
+if len(sys.argv) > 1:
+    title = sys.argv[1] + "_"
+fig.savefig(title + now + ".png")
