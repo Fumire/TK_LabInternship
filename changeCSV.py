@@ -7,7 +7,8 @@ for name in sys.argv[1:]:
     txtFile = open(txtFileName, "r")
     csvFile = open(csvFileName, "w")
 
-    while True:
+    #while True:
+    for _ in range(200):
         line = txtFile.readline()
         if not line: break
         elif line[0] == "#":
