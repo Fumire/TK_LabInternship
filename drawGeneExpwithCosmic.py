@@ -9,7 +9,7 @@ import getGeneExp as exp
 
 now = time.strftime("%m%d%H%M%S")
 expFile = "../COSMIC/CosmicCompleteGeneExpression.tsv"
-data = exp.geneExpFromCosmic(expFile, ["INMT"])
+data = exp.geneExpFromCosmic(expFile)
 print(sys.argv[0], "Load Data", len(data))
 
 plt.figure()

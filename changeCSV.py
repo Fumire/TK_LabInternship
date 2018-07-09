@@ -2,7 +2,7 @@ import sys
 
 for name in sys.argv[1:]:
     txtFileName = name.strip()
-    csvFileName = txtFileName[:txtFileName.rfind(".")] + ".csv"
+    csvFileName = "sample_" + txtFileName[:txtFileName.rfind(".")] + ".csv"
 
     txtFile = open(txtFileName, "r")
     csvFile = open(csvFileName, "w")

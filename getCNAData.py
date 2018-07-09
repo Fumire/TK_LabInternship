@@ -27,9 +27,9 @@ def onlyCNAFromCosmic(fileName, see=-1):
         line = cnaFile.readline()
         if not line: break
 
-        line = line.split("\t")
+        line = line.split()
         gene = line[0] + "+" + line[1]
-        if see != -1: gene += line[see] + "+" + gene
+        if see != -1: gene = line[see] + "+" + gene
 
         assert gene not in geneList
 

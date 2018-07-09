@@ -3,7 +3,7 @@ def RNASeqwithGene(fileName, review=True):
     organList = list()
 
     RNASeqFile = open(fileName, "r")
-    
+
     for _ in range(2): assert RNASeqFile.readline()
 
     for organ in RNASeqFile.readline().split("\t"):
@@ -38,7 +38,7 @@ def RNASeqwithOrgan(fileName, review=True):
     organList = dict()
     organName = list()
     RNASeqFile = open(fileName, "r")
-    
+
     for _ in range(2): assert RNASeqFile.readline()
 
     for organ in RNASeqFile.readline().split("\t")[2:]:
@@ -66,7 +66,7 @@ def RNASeqwithOrgan(fileName, review=True):
 def RNASeqOrganName(fileName):
     organList = dict()
     RNASeqFile = open(fileName, "r")
-    
+
     for _ in range(2): assert RNASeqFile.readline()
 
     for i, ch_i in enumerate(RNASeqFile.readline().split("\t")[2:]):
@@ -92,10 +92,10 @@ def RNASeqGeneName(fileName):
         except:
             print(gene, geneList[gene], seq)
             seq += 1
-        geneList[gene] = seq 
+        geneList[gene] = seq
         seq += 1
     RNASeqFile.close()
-    
+
     return geneList
 
 def selectedGene(fileName, geneNum):

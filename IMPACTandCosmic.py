@@ -20,7 +20,7 @@ for gene, val in dataCosmic.items():
     else: ans[(name, val)] = 1
 del dataCosmic
 del dataImpact
-print("Load Data", len(ans))
+print(sys.argv[0], "Load Data", len(ans))
 
 x = list()
 y = list()
@@ -52,6 +52,7 @@ plt.title("Only Gene both in MSK-IMPACT and COSMIC")
 plt.xlabel("Gene")
 plt.ylabel("CNA")
 plt.xticks([])
+plt.grid(True)
 
 fig = plt.gcf()
 fig.set_size_inches(24, 18)

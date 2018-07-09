@@ -56,6 +56,7 @@ plt.xlabel("Gene")
 plt.ylabel("CNA")
 plt.xticks([])
 plt.legend()
+plt.grid(True)
 
 fig = plt.gcf()
 fig.set_size_inches(96, 18)

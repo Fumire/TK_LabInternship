@@ -14,7 +14,7 @@ ans = dict()
 for gene, val in data.items():
     name = gene.split("+")[1]
     if val == 0: continue
-    #if abs(val) < 100: continue
+    if abs(val) < 10**2: continue
     if (name, val) in ans: ans[(name, val)] += 1
     else: ans[(name, val)] = 1
 del data
@@ -32,7 +32,7 @@ for val in gene:
     x.append(val[0])
     y.append(val[1])
     color.append(ans[val])
-    big.append(ans[val] * 100)
+    big.append((ans[val]**2) * 100)
 del ans
 print("Load ans")
 
@@ -48,7 +48,7 @@ plt.colorbar()
 
 plt.title("Log Scale")
 plt.xlabel("Gene")
-plt.ylabel("CNA")
+plt.ylabel("CNA (Log Scale)")
 plt.xticks([])
 plt.yscale('log')
 
