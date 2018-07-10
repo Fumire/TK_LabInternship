@@ -27,7 +27,7 @@ def onlyCNAFromCosmic(fileName, see=-1):
         line = cnaFile.readline()
         if not line: break
 
-        line = line.split()
+        line = line.split("\t")
         gene = line[0] + "+" + line[1]
         if see != -1: gene = line[see] + "+" + gene
 
@@ -38,7 +38,7 @@ def onlyCNAFromCosmic(fileName, see=-1):
 
         if line[16] == "gain": geneList[gene] = (float(line[14]))
         elif line[16] == "loss": geneList[gene] = -(float(line[14]))
-    else: assert False
+        else: assert False
     cnaFile.close()
     return geneList
 
@@ -127,5 +127,4 @@ if __name__ == "__main__":
     #patient = CNAwithPatient(name, False); print(len(patient));
     #mutation = CNAwithHugo(name, False); print(len(mutation));
     #cosmic = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv"); print(len(cosmic)); del cosmic;
-    handle = handCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv");
-    for gene, val in handle.items(): print(gene, val)
+    handle = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv");
