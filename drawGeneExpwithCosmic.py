@@ -1,6 +1,6 @@
 import matplotlib as mpl
 mpl.use("Agg")
-mpl.rcParams.update({'font.size': 20})
+mpl.rcParams.update({'font.size': 30})
 import matplotlib.pyplot as plt
 import numpy as np
 import time
@@ -9,7 +9,7 @@ import getGeneExp as exp
 
 now = time.strftime("%m%d%H%M%S")
 expFile = "../COSMIC/CosmicCompleteGeneExpression.tsv"
-data = exp.geneExpFromCosmic(expFile)
+data = exp.geneExpFromCosmic(expFile, cutNormal=True)
 print(sys.argv[0], "Load Data", len(data))
 
 plt.figure()
@@ -17,9 +17,17 @@ plt.figure()
 genes = list(data.keys())
 genes.sort()
 
+x = list()
+y = list()
+
 for i, gene in enumerate(genes):
     for val in data[gene]:
-        plt.scatter(i, val, alpha=0.5)
+        x.append(i)
+        y.append(val)
+del data
+print(sys.argv[0], "Load x&y", len(x))
+
+plt.scatter(x, y, alpha=0.5)
 
 plt.title("Gene Expression")
 plt.xlabel("Gene")

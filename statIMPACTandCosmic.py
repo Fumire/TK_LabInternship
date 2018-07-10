@@ -3,23 +3,31 @@ import time
 import sys
 import statistics
 from scipy.stats import iqr
+import numpy as np
 
 now = time.strftime("%m%d%H%M%S")
 dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
 dataImpact = cna.CNAonlyGene("../msk_impact_2017/data_CNA.txt")
-ans = dict()
+ans = list()
 
 for gene, val in dataCosmic.items():
     name = gene.split("+")[0]
     if name not in dataImpact: continue
-    if name in ans: ans[name].append(val)
-    else: ans[name] = [val]
+    ans.append(abs(val))
 del dataCosmic
 del dataImpact
 print("Load Data", len(ans))
 
-gene = list(ans.keys())
-gene.sort()
+ans.sort()
+
+print("min:", min(ans))
+print("max:", max(ans))
+print("mean:", statistics.mean(ans))
+print("median:", statistics.median(ans))
+print("stdev:", statistics.stdev(ans))
+print("Q1&Q3:", np.percentile(ans, 25), np.percentile(ans, 75))
+print("IQR:", iqr(ans))
+exit()
 
 title = "statIMPACTandCosmic_"
 if len(sys.argv) > 1:
