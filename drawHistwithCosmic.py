@@ -17,26 +17,30 @@ ans = list()
 
 for gene, v in dataCosmic.items():
     name = gene.split("+")[0]
-    val = abs(v)
+    #val = abs(v)
+    val = v
     if name not in dataImpact: continue
     if val > 80: continue
     ans.append(val)
 del dataCosmic
 del dataImpact
+m = min(ans)
+for i in range(len(ans)):
+    ans[i] = ans[i]-m
 print(sys.argv[0], "Load Data", len(ans))
 
 plt.figure()
 
-n, bins, patches = plt.hist(ans, 80, density=True)
+n, bins, patches = plt.hist(ans, 40, range=[0, 40], density=True)
 
 plt.title("Histogram")
 plt.grid(True)
 plt.xlabel("CNA")
-plt.ylabel("Frequency (%)")
+plt.ylabel("Frequency")
+#for i in range(40): plt.text(i, 0.05, "%d" % (i+m))
 
 fig = plt.gcf()
 fig.set_size_inches(24, 18)
-plt.show()
 
 title = "hist_"
 if len(sys.argv) > 1:

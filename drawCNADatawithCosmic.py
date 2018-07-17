@@ -54,7 +54,6 @@ plt.yscale('log')
 
 fig = plt.gcf()
 fig.set_size_inches(24, 18)
-plt.show()
 
 title = "COSMIC_"
 if len(sys.argv) > 1:

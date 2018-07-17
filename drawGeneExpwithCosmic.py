@@ -22,6 +22,7 @@ y = list()
 
 for i, gene in enumerate(genes):
     for val in data[gene]:
+        if val < 10: continue
         x.append(i)
         y.append(val)
 del data
