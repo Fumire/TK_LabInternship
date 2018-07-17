@@ -1,11 +1,10 @@
 import getGeneExp as exp
 
 name = "../COSMIC/CosmicCompleteGeneExpression.tsv"
-data = exp.geneExpOutlier(name, 10000)
+data = exp.geneExpOutlier(name, 6)
 
 for gene in data:
     print(gene, ":", end=" ")
     data[gene].sort(reverse=True)
-    for val in data[gene]:
-        print(val, end=" ")
+    for val in data[gene]: print(val, end=" ")
     print()
