@@ -17,7 +17,7 @@ def CNAFromCosmic(fileName):
     cnaFile.close()
     return geneList
 
-def onlyCNAFromCosmic(fileName, see=-1):
+def onlyCNAFromCosmic(fileName, see=None):
     geneList = dict()
     cnaFile = open(fileName, "r")
 
@@ -29,7 +29,7 @@ def onlyCNAFromCosmic(fileName, see=-1):
 
         line = line.split("\t")
         gene = line[0] + "+" + line[1]
-        if see != -1: gene = line[see] + "+" + gene
+        if see is not None: gene = line[see] + "+" + gene
 
         assert gene not in geneList
 
