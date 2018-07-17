@@ -1,4 +1,4 @@
-def geneExpFromCosmic(fileName, wanted=None, cutNormal=False):
+def geneExpFromCosmic(fileName, wanted=None, cutNormal=False, maxlen=None):
     geneList = dict()
     expFile = open(fileName, "r")
 
@@ -11,10 +11,18 @@ def geneExpFromCosmic(fileName, wanted=None, cutNormal=False):
 
         gene, val = line[2], float(line[4])
 
-        if wanted != None and gene not in wanted: continue
-        if cutNormal and line[3] == "normal": continue
+        if wanted is not None:
+            if gene not in wanted: continue
+        if cutNormal is not False:
+            if line[3] == "normal": continue
+            elif line[3] == "over" or line[3] == "under": pass
+            else: assert False
+
         if gene in geneList: geneList[gene].append(val)
         else: geneList[gene] = [val]
+        if maxlen is not None:
+            if maxlen == 0: break
+            else: maxlen -= 1
     expFile.close()
     return geneList
 
@@ -30,7 +38,7 @@ def geneExpOutlier(fileName, threshold=10000):
         line = line.split("\t")
 
         gene, val = line[2], float(line[4])
-        if val < threshold: continue
+        if abs(val) < threshold: continue
         if gene in geneList: geneList[gene].append(val)
         else: geneList[gene] = [val]
     expFile.close()
