@@ -86,3 +86,59 @@ The gene names are unique in return data. Nothing in columns #14 and/or #15, reg
   * fileName
   * threshold
 * return
+
+## getRNASeqData.py
+
+### RNASeqGeneName
+
+* input
+  * fileName
+* return
+
+### RNASeqOrganName
+
+* input
+  * fileName
+* return
+
+### RNASeqwithGene
+
+* input
+  * fileName
+  * review
+* return
+
+### RNASeqwithOrgan
+
+* input
+  * fileName
+  * review
+* return
+
+### selectedGene
+
+* input
+  * fileName
+  * geneNum
+* return
+
+### selectedGeneOrgan
+
+* input
+  * fileName
+  * geneNum
+  * organNum
+* return
+
+### selectedOrgan
+
+* input
+  * fileName
+  * organNum
+* return
+
+## drawCNAData.py
+
+Pre-requisite: **getCNAData.py**
+
+This python file is 
