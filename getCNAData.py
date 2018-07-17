@@ -91,8 +91,7 @@ def CNAonlyGene(fileName):
         line = cnaFile.readline()
         if not line: break
         line = line.split("\t")[0]
-        if line not in nameList:
-            nameList.append(line)
+        if line not in nameList: nameList.append(line)
     cnaFile.close()
     return nameList
 

@@ -15,7 +15,8 @@ import scipy.stats
 
 now = time.strftime("%m%d%H%M%S")
 expFile = "../COSMIC/CosmicCompleteGeneExpression.tsv"
-data = exp.geneExpFromCosmic(expFile, cutNormal=True)
+#data = exp.geneExpFromCosmic(expFile, cutNormal=False)
+data = exp.geneExpInlier(expFile)
 ans = list()
 
 for gene, v in data.items():

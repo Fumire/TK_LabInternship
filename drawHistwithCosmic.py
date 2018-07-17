@@ -25,8 +25,7 @@ for gene, v in dataCosmic.items():
 del dataCosmic
 del dataImpact
 m = min(ans)
-for i in range(len(ans)):
-    ans[i] = ans[i]-m
+#for i in range(len(ans)): ans[i] = ans[i]-m
 print(sys.argv[0], "Load Data", len(ans))
 
 plt.figure()
