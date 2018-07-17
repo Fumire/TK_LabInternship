@@ -19,11 +19,14 @@ data = exp.geneExpFromCosmic(expFile, cutNormal=True)
 ans = list()
 
 for gene, v in data.items():
-    ans.append(v)
+    #ans.extend(list(map(abs, v)))
+    #ans.extend(list(filter(lambda x: x < 6, map(abs, v))))
+    ans.extend(list(filter(lambda x: x < 6 and x > -6, v)))
 del data
 print(sys.argv, "Load data", len(ans))
 
 plt.figure()
+#n, bins, patches = plt.hist(ans, density=True)
 n, bins, patches = plt.hist(ans, density=True)
 print(sys.argv, "Draw Histogram")
 
