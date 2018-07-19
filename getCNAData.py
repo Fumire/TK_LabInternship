@@ -32,12 +32,41 @@ def onlyCNAFromCosmic(fileName, see=None):
         if see is not None: gene = line[see] + "+" + gene
 
         assert gene not in geneList
+        assert len(line) == 20
 
         if line[14] == '': line[14] = 0
         if line[15] == '': line[15] = 0
 
         if line[16] == "gain": geneList[gene] = (float(line[14]))
         elif line[16] == "loss": geneList[gene] = -(float(line[14]))
+        else: assert False
+    cnaFile.close()
+    return geneList
+
+def onlyCNAFromCosmicPair(fileName, see=None):
+    geneList = dict()
+    cnaFile = opne(fileName, "r")
+
+    for _ in range(1): assert cnaFile.readline()
+
+    while True:
+        line = cnaFile.readline()
+        if not line: break
+
+        line = line.split("\t")
+        gene = line[0] + "+" + line[1]
+        if see is not None: gene = line[see] + "+" + gene
+
+        assert gene not in geneList
+        assert len(line) == 20
+
+        def change(a1, a2=1):
+            if a1 == '': return None
+            else: return float(a1)*a2
+        if line[14] == '' or line[15] == '': continue
+
+        if line[16] == "gain": geneList[gene] = (change(line[14]), change(line[15]))
+        elif line[16] == "loss": geneList[gene] = (change(line[14], -1), change(line[15], -1))
         else: assert False
     cnaFile.close()
     return geneList
