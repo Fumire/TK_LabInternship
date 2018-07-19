@@ -1,24 +1,30 @@
 import matplotlib as mpl
 mpl.use("Agg")
-mpl.rcParams.update({'font.size': 20})
+mpl.rcParams.update({'font.size': 30})
 import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
 import time
 import sys
+import pickle
 
 now = time.strftime("%m%d%H%M%S")
-data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
 ans = dict()
 
-for gene, val in data.items():
-    name = gene.split("+")[1]
-    if val == 0: continue
-    if abs(val) < 10**2: continue
-    if (name, val) in ans: ans[(name, val)] += 1
-    else: ans[(name, val)] = 1
-del data
-print("Load Data")
+if False:
+    data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
+    for gene, val in data.items():
+        name = gene.split("+")[1]
+        if val == 0: continue
+        if abs(val) < 10**2: continue
+        if (name, val) in ans: ans[(name, val)] += 1
+        else: ans[(name, val)] = 1
+    del data
+    print("Load Data")
+
+    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
+else:
+    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
 
 x = list()
 y = list()
@@ -48,7 +54,7 @@ plt.colorbar()
 
 plt.title("Log Scale")
 plt.xlabel("Gene")
-plt.ylabel("CNA (Log Scale)")
+plt.ylabel("CNV (Log Scale)")
 plt.xticks([])
 plt.yscale('log')
 
