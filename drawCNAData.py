@@ -15,20 +15,16 @@ now = time.strftime("%m%d%H%M%S")
 
 for i, gene in enumerate(HUGOs):
     for j in data[gene].values():
-        if (i,j) in ans:
-            ans[(i,j)] += 1
-        else:
-            ans[(i,j)] = 1
+        if (i,j) in ans: ans[(i,j)] += 1
+        else: ans[(i,j)] = 1
 del data
 
 x = list()
 y = list()
 color = list()
 big = list()
-data = list(ans.keys())
-data.sort()
 
-for val in ans: 
+for val in ans:
     x.append(val[0])
     y.append(val[1])
     color.append(ans[val])
