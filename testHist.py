@@ -4,6 +4,7 @@ mpl.rcParams.update({'font.size': 30})
 import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
+import get1000Data as hgp
 import time
 import sys
 from statistics import mean, median, stdev
@@ -27,9 +28,14 @@ if True:
     dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
     #dataCosmic = cna.onlyCNAFromCosmic("../CellLine/CosmicCLP_CompleteCNA.tsv", 2)
     dataImpact = cna.CNAonlyGene("../msk_impact_2017/data_CNA.txt")
+    data1000 = hgp.getSegmentDiploidHugo()
     def consistName(name):
         if name in dataImpact: return False
+        if name in data1000: return False
         for gene in dataImpact:
+            if gene in name:
+                return False
+        for gene in data1000:
             if gene in name:
                 return False
         return True
@@ -37,8 +43,6 @@ if True:
     for gene, v in dataCosmic.items():
         name = gene.split("+")[0]
         if consistName(name): continue
-        #if name not in dataImpact: continue
-        #ans.append(abs(v))
         ans.append(v)
     del dataCosmic
     del dataImpact
