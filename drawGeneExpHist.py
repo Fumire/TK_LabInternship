@@ -19,20 +19,21 @@ now = time.strftime("%m%d%H%M%S")
 ans = list()
 if False:
     expFile = "../COSMIC/CosmicCompleteGeneExpression.tsv"
-    #data = exp.geneExpFromCosmic(expFile, cutNormal=True)
-    data = exp.geneExpInlier(expFile)
+    data = exp.geneExpFromCosmic(expFile)
+    #data = exp.geneExpInlier(expFile)
 
     for gene, v in data.items():
-        ans.extend(list(filter(lambda x: x < 6 and x > -6, v)))
+        ans.extend(list(filter(lambda x: x <= 6 and x >= -6, v)))
     del data
-    print(sys.argv, "Load data", len(ans))
     with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
 else:
     with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
+print(sys.argv, "Load data", len(ans))
 
 plt.figure()
 #n, bins, patches = plt.hist(ans, density=True)
-plt.hist(ans, bins=6*4+1, range=[-6.5, 6.5], density=True)
+#plt.hist(ans, bins=6*10+1, range=[-6.5, 6.5], density=True)
+plt.hist(ans, bins=6*10+1, range=[-6.5, 6.5])
 print(sys.argv, "Draw Histogram")
 
 mu, std = norm.fit(ans); del ans;
@@ -44,6 +45,7 @@ plt.text(3, 0.125, "std = %.2f" % std)
 print(sys.argv, "Fit Complete", mu, std)
 
 plt.grid(True)
+plt.title("Histogram of Gene Expression")
 plt.xlabel("Gene Expression (Z-score)")
 plt.ylabel("Frequency")
 

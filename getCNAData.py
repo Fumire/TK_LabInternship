@@ -155,4 +155,4 @@ if __name__ == "__main__":
     #patient = CNAwithPatient(name, False); print(len(patient));
     #mutation = CNAwithHugo(name, False); print(len(mutation));
     #cosmic = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv"); print(len(cosmic)); del cosmic;
-    handle = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv");
+    handle = onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv"); print(len(handle))

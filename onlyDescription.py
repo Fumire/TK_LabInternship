@@ -1,7 +1,7 @@
 import sys
 
 txtFileName = sys.argv[1]
-dscFileName = txtFileName[:txtFileName.rfind(".")] + "_description.txt"
+dscFileName = "description_" + txtFileName[:txtFileName.rfind(".")] + ".txt"
 
 txtFile = open(txtFileName, "r")
 dscFile = open(dscFileName, "w")
