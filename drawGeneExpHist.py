@@ -7,8 +7,7 @@ import numpy as np
 import time
 import sys
 from statistics import mean, median, stdev
-from scipy.stats import iqr
-from scipy.stats import norm
+from scipy.stats import norm, ks_2samp, iqr
 from matplotlib.ticker import PercentFormatter
 from scipy.optimize import curve_fit
 from scipy.misc import factorial
@@ -32,16 +31,18 @@ print(sys.argv, "Load data", len(ans))
 
 plt.figure()
 #n, bins, patches = plt.hist(ans, density=True)
-plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5], density=True)
-#plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5])
+n, bins, patches = plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5], density=True)
+del ans
 print(sys.argv, "Draw Histogram")
 
-mu, std = norm.fit(ans); del ans;
+mu, std = norm.fit(bins)
 x = np.linspace(-6.5, 6.5, 1000)
 p = norm.pdf(x, mu, std)
-plt.plot(x, p, 'k', linewidth=2)
-plt.text(3, 0.250, "mu = %.2f" % mu)
+plt.plot(x, p, 'r', linewidth=2)
+plt.text(3, 0.150, "mu = %.2f" % mu)
 plt.text(3, 0.125, "std = %.2f" % std)
+st = ks_2samp(n, p)
+plt.text(3, 0.175, "st = %.2f" % st[0])
 print(sys.argv, "Fit Complete", mu, std)
 
 plt.grid(True)
