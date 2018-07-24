@@ -32,12 +32,12 @@ print(sys.argv, "Load data", len(ans))
 
 plt.figure()
 #n, bins, patches = plt.hist(ans, density=True)
-#plt.hist(ans, bins=6*10+1, range=[-6.5, 6.5], density=True)
-plt.hist(ans, bins=6*10+1, range=[-6.5, 6.5])
+plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5], density=True)
+#plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5])
 print(sys.argv, "Draw Histogram")
 
 mu, std = norm.fit(ans); del ans;
-x = np.linspace(-6.5, 6.5, 100)
+x = np.linspace(-6.5, 6.5, 1000)
 p = norm.pdf(x, mu, std)
 plt.plot(x, p, 'k', linewidth=2)
 plt.text(3, 0.250, "mu = %.2f" % mu)
