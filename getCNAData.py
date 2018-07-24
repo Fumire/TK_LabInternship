@@ -37,8 +37,7 @@ def onlyCNAFromCosmic(fileName, see=None):
         if line[14] == '': line[14] = 0
         if line[15] == '': line[15] = 0
 
-        if line[16] == "gain": geneList[gene] = (float(line[14]))
-        elif line[16] == "loss": geneList[gene] = -(float(line[14]))
+        if line[16] == "gain" or line[16] == "loss": geneList[gene] = float(line[14])
         else: assert False
     cnaFile.close()
     return geneList
