@@ -24,7 +24,7 @@ def poissonDist(n, lamb):
 now = time.strftime("%m%d%H%M%S")
 ans = list()
 
-if True:
+if False:
     dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
     #dataCosmic = cna.onlyCNAFromCosmic("../CellLine/CosmicCLP_CompleteCNA.tsv", 2)
     dataImpact = cna.CNAonlyGene("../msk_impact_2017/data_CNA.txt")
@@ -64,13 +64,12 @@ print(sys.argv, "Q1&Q3", Q1, Q3)
 print(sys.argv[0], "Load Data", len(ans))
 
 plt.figure()
-n, bins, patches = plt.hist(ans, bins=31, range=[-15.5, 15.5], density=True)
-#n, bins, patches = plt.hist(ans, density=True)
+n, bins, patches = plt.hist(ans, bins=20+1, range=[-0.5, 20.5], density=True)
 print(sys.argv[0], "Draw Histogram")
+
 binsMiddles = 0.5 * (bins[1:] + bins[:-1])
 params, covMatrix = curve_fit(poissonDist, binsMiddles, n)
-
-xPlot = np.linspace(-15, 15, 1000)
+xPlot = np.linspace(0, 20, 1000)
 plt.plot(xPlot, poissonDist(xPlot, *params), "r-", lw=2)
 print(sys.argv[0], "Draw Poission")
 
@@ -79,6 +78,7 @@ plt.grid(True)
 plt.xlabel("CNV")
 plt.ylabel("Frequency")
 plt.text(5, 0.125, "lambda = %.2f" % (params))
+plt.text(5, 0.150, "n = %d" % len(ans))
 for i in range(len(n)):
     if n[i] == 0: plt.text(bins[i]+0.5, 0, "x")
 
