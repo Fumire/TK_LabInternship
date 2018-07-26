@@ -4,6 +4,7 @@ mpl.rcParams.update({'font.size': 30})
 import matplotlib.pyplot as plt
 import numpy as np
 import getCNAData as cna
+import get1000Data as hgp
 import time
 import sys
 from statistics import mean, median, stdev
@@ -28,28 +29,24 @@ ans = dict()
 if False:
     dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
     dataImpact = cna.CNAonlyGene("../msk_impact_2017/data_CNA.txt")
+    data1000 = hgp.getSegmentDiploidHugo()
 
     def consistName(name):
-        if name in dataImpact: return False
-        flag = True
-        for gene in dataImpact:
-            if gene in name:return False
-            else: return True
+        if name not in dataImpact:
+            return True
+        if name not in data1000:
+            return True
+        return False
 
     for gene, v in dataCosmic.items():
         name = gene.split("+")[0].split("_")[0]
-        #name = gene.split("+")[0]
-        #val = abs(v)
-        val = v
+        val = abs(v)
         if consistName(name): continue
         if name in ans: ans[name].append(val)
         else: ans[name] = [val]
     del dataCosmic
     del dataImpact
-    for key in ans.keys():
-        m = min(ans[key])
-        for i in range(len(ans[key])):
-            ans[key][i] = ans[key][i] - m
+    del data1000
     with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
 else:
     with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
