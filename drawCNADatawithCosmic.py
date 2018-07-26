@@ -52,7 +52,7 @@ plt.figure()
 plt.scatter(x, y, s=big, c=color, alpha=0.5)
 plt.colorbar()
 
-plt.title("Log Scale")
+plt.title("CNV with COSMIC")
 plt.xlabel("Gene")
 plt.ylabel("CNV (Log Scale)")
 plt.xticks([])

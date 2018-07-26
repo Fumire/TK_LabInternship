@@ -14,7 +14,7 @@ now = time.strftime("%m%d%H%M%S")
 if True:
     #data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
     data = cna.CNAwithHugo("../msk_impact_2017/data_CNA.txt", True)
-    HUGOs = list(data.keys())
+    HUGOs = sorted(list(data.keys()))
     for i, gene in enumerate(HUGOs):
         for j in data[gene].values():
             if (i,j) in ans: ans[(i,j)] += 1
@@ -44,7 +44,8 @@ plt.scatter(x, y, s=big, c=color, alpha=0.5)
 plt.colorbar()
 
 plt.xlabel("Gene")
-plt.ylabel("CNA")
+plt.ylabel("CNV")
+plt.title("CNV with MSKCC-IMPACT (Removed)")
 
 #plt.xticks(x, list(data.keys()))
 plt.xticks([])
