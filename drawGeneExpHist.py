@@ -24,26 +24,27 @@ if False:
     for gene, v in data.items():
         ans.extend(list(filter(lambda x: x <= 6 and x >= -6, v)))
     del data
-    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
+    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f:
+        pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
 else:
-    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
+    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f:
+        ans = pickle.load(f)
 print(sys.argv, "Load data", len(ans))
 
 plt.figure()
-#n, bins, patches = plt.hist(ans, density=True)
-n, bins, patches = plt.hist(ans, bins=6*25+1, range=[-6.5, 6.5], density=True)
-del ans
+n, bins, patches = plt.hist(ans, bins=6*5*2+1, range=[-6.5, 6.5], density=True)
 print(sys.argv, "Draw Histogram")
 
-mu, std = norm.fit(bins)
-x = np.linspace(-6.5, 6.5, 1000)
+mu, std = norm.fit(ans)
+x = np.linspace(-6.0, 6.0, 1000)
 p = norm.pdf(x, mu, std)
 plt.plot(x, p, 'r', linewidth=2)
-plt.text(3, 0.150, "mu = %.2f" % mu)
-plt.text(3, 0.125, "std = %.2f" % std)
+plt.text(4, 0.150, "mu = %.2f" % mu)
+plt.text(4, 0.125, "std = %.2f" % std)
 st = ks_2samp(n, p)
-plt.text(3, 0.175, "st = %.2f" % st[0])
-print(sys.argv, "Fit Complete", mu, std)
+plt.text(4, 0.175, "st = %.2f" % st[0])
+plt.text(4, 0.200, "n = %d" % len(ans))
+print(sys.argv, "Fit Complete", mu, std, st)
 
 plt.grid(True)
 plt.title("Histogram of Gene Expression")

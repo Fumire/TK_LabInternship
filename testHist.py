@@ -60,7 +60,6 @@ print(sys.argv, "Q1&Q3", Q1, Q3)
 #    if i < valIQR * 1.5: continue
 #    ans[i:] = []
 #    break
-
 print(sys.argv[0], "Load Data", len(ans))
 
 plt.figure()

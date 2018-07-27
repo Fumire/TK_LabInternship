@@ -14,10 +14,14 @@ ans = dict()
 
 for gene, val in dataCosmic.items():
     name = gene.split("+")[0]
-    if val == 0: continue
-    if name not in dataImpact: continue
-    if (name, val) in ans: ans[(name, val)] += 1
-    else: ans[(name, val)] = 1
+    if val == 0:
+        continue
+    if name not in dataImpact:
+        continue
+    if (name, val) in ans:
+        ans[(name, val)] += 1
+    else:
+        ans[(name, val)] = 1
 del dataCosmic
 del dataImpact
 print(sys.argv[0], "Load Data", len(ans))
