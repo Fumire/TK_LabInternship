@@ -7,24 +7,30 @@ import getCNAData as cna
 import time
 import sys
 import pickle
+import scipy.stats
 
 now = time.strftime("%m%d%H%M%S")
 ans = dict()
 
-if False:
+if True:
     data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
     for gene, val in data.items():
         name = gene.split("+")[1]
-        if val == 0: continue
-        if abs(val) < 10**2: continue
-        if (name, val) in ans: ans[(name, val)] += 1
-        else: ans[(name, val)] = 1
+        if val == 0:
+            continue
+        if abs(val) < 10**1: continue
+        if (name, val) in ans:
+            ans[(name, val)] += 1
+        else:
+            ans[(name, val)] = 1
     del data
     print("Load Data")
 
-    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
+    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f:
+        pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
 else:
-    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
+    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f:
+        ans = pickle.load(f)
 
 x = list()
 y = list()

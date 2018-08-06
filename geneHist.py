@@ -26,16 +26,12 @@ def poissonDist(n, lamb):
 
 now = time.strftime("%m%d%H%M%S")
 ans = dict()
-if False:
+if True:
     dataCosmic = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv", 2)
     dataImpact = cna.CNAonlyGene("../msk_impact_2017/data_CNA.txt")
     data1000 = hgp.getSegmentDiploidHugo()
 
     def consistName(name):
-        if name not in dataImpact:
-            return True
-        if name not in data1000:
-            return True
         return False
 
     for gene, v in dataCosmic.items():
@@ -58,6 +54,8 @@ pngFiles = list()
 
 fileTitle = "gene_"
 if len(sys.argv) > 1: fileTitle = sys.argv[1] + "_"
+with open(fileTitle + now + ".csv", "a") as f:
+    f.write("gene,st0,st1\n")
 
 for i, gene in enumerate(genes):
     Q1, Q3 = np.percentile(ans[gene], 25), np.percentile(ans[gene], 75)
@@ -72,16 +70,18 @@ for i, gene in enumerate(genes):
     xPlot = np.linspace(0, head, 100)
     plt.plot(xPlot, poissonDist(xPlot, *params), "r-", lw=2)
     st = ks_2samp(n, poissonDist(xPlot, *params))
-    with open(fileTitle + now + ".txt", "a") as f:
-        f.write(gene + " " + str(st) + "\n")
+    with open(fileTitle + now + ".csv", "a") as f:
+        f.write(gene + ",")
+        f.write(str(st[0]) + ",")
+        f.write(str(st[1]) + "\n")
 
     plt.title(gene)
     plt.grid(True)
     plt.xlabel("CNV")
     plt.ylabel("Frequency")
-    plt.text(head//2, 0.125, "lambda = %.2f" % (params))
-    plt.text(head//2, 0.150, "n = %d" % len(ans[gene]))
-    plt.text(head//2, 0.175, "st = %.2f" % st[0])
+    plt.text(head/2, max(n)*3/8, "lambda = %.2f" % (params))
+    plt.text(head/2, max(n)*4/8, "n = %d" % len(ans[gene]))
+    plt.text(head/2, max(n)*5/8, "st = %.2f" % st[0])
 
     fig = plt.gcf()
     fig.set_size_inches(24, 18)

@@ -13,16 +13,20 @@ now = time.strftime("%m%d%H%M%S")
 
 if True:
     #data = cna.onlyCNAFromCosmic("../COSMIC/CosmicCompleteCNA.tsv")
-    data = cna.CNAwithHugo("../msk_impact_2017/data_CNA.txt", True)
+    data = cna.CNAwithHugo("../msk_impact_2017/data_CNA.txt", False)
     HUGOs = sorted(list(data.keys()))
     for i, gene in enumerate(HUGOs):
-        for j in data[gene].values():
-            if (i,j) in ans: ans[(i,j)] += 1
-            else: ans[(i,j)] = 1
+        for j in map(lambda x: x+2, data[gene].values()):
+            if (i, j) in ans:
+                ans[(i, j)] += 1
+            else:
+                ans[(i, j)] = 1
     del data
-    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f: pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
+    with open('./var/' + sys.argv[0] + '.pckl', 'wb') as f:
+        pickle.dump(ans, f, pickle.HIGHEST_PROTOCOL)
 else:
-    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f: ans = pickle.load(f)
+    with open('./var/' + sys.argv[0] + '.pckl', 'rb') as f:
+        ans = pickle.load(f)
 
 x = list()
 y = list()
@@ -45,7 +49,7 @@ plt.colorbar()
 
 plt.xlabel("Gene")
 plt.ylabel("CNV")
-plt.title("CNV with MSKCC-IMPACT (Removed)")
+plt.title("CNV with MSKCC-IMPACT")
 
 #plt.xticks(x, list(data.keys()))
 plt.xticks([])
